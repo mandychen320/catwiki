@@ -25,6 +25,30 @@ app.get("/api/breeds", (req, res) => {
     })
 });
 
+app.get("/api/images", (req, res) => {
+  fetch(`https://api.thecatapi.com/v1/images/search?limit=10`, {
+    headers: {
+      'x-api-key': process.env.API_KEY
+    }
+  }).then((data) => data.json())
+    .then((data) => {
+      console.log(data)
+      res.json(data)
+    })
+});
+
+app.get("/api/images/:id", (req, res) => {
+  fetch(`https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=${req.params.id}`, {
+    headers: {
+      'x-api-key': process.env.API_KEY
+    }
+  }).then((data) => data.json())
+    .then((data) => {
+      console.log(data)
+      res.json(data)
+    })
+});
+
 // All other GET requests not handled before will return our React app
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));

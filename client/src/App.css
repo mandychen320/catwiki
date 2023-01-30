@@ -46,6 +46,8 @@
   padding: 10px;
   font-size: 15px;
   box-shadow: 0 2px 4px darkslategray;
+  margin-left: 30px;
+  margin-top: 30px;
 }
 
 .card {
@@ -73,7 +75,7 @@
   padding: 8px 16px;
   display: flex;
   flex-direction: column;
-  margin: 20px;
+  margin: 10px;
   /* margin-right: 50px; */
 }
 
@@ -88,11 +90,29 @@
   width: 100%;
   border-radius: 5px;
   margin-top: 15px;
-  margin-left: 15px;
+  margin-bottom: 15px;
   display: flex;
   flex-direction: row;
 }
 
 .link {
   text-align: right;
+}
+
+.random-images {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.random-image {
+  /* height: 100px; width: 100px; */
+  height: auto; 
+  width: auto; 
+  max-width: 300px; 
+  max-height: 300px;
+  border-radius: 5px;
+  margin: 5px;
 }
