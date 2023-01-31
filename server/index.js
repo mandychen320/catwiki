@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require("express");
-
+// import fetch from 'node-fetch'
+const fetch = require('node-fetch-commonjs')
 const PORT = process.env.PORT || 3001;
 
 const app = express();
@@ -12,41 +13,34 @@ app.get("/api", (req, res) => {
   res.json({ message: "Hello from CatWiki!" });
 });
 
-app.get("/api/breeds", (req, res) => {
-  console.log('breeds')
-  fetch(`https://api.thecatapi.com/v1/breeds`, {
+app.get("/api/breeds", async (req, res) => {
+  const response = await fetch(`https://api.thecatapi.com/v1/breeds`, {
     headers: {
       'x-api-key': process.env.API_KEY
     }
-  }).then((data) => data.json())
-    .then((data) => {
-      console.log(data)
-      res.json(data)
-    })
+  });
+  const data = await response.json();
+  res.json(data);
 });
 
-app.get("/api/images", (req, res) => {
-  fetch(`https://api.thecatapi.com/v1/images/search?limit=10`, {
-    headers: {
-      'x-api-key': process.env.API_KEY
-    }
-  }).then((data) => data.json())
-    .then((data) => {
-      console.log(data)
-      res.json(data)
-    })
+app.get("/api/images", async (req, res) => {
+    const response = await fetch(`https://api.thecatapi.com/v1/images/search?limit=10`, {
+      headers: {
+        'x-api-key': process.env.API_KEY
+      }
+    });
+    const data = await response.json();
+    res.json(data);
 });
 
-app.get("/api/images/:id", (req, res) => {
-  fetch(`https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=${req.params.id}`, {
+app.get("/api/images/:id", async (req, res) => {
+  const response = await fetch(`https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=${req.params.id}`, {
     headers: {
       'x-api-key': process.env.API_KEY
     }
-  }).then((data) => data.json())
-    .then((data) => {
-      console.log(data)
-      res.json(data)
-    })
+  });
+  const data = await response.json();
+  res.json(data);
 });
 
 // All other GET requests not handled before will return our React app

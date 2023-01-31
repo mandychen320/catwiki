@@ -8,10 +8,10 @@ export default function InfoPage() {
     
     const [data, setData] = useState([]);
 
-    useEffect(() => {
+    useEffect(async () => {
         window.scrollTo(0, 0);
-        fetch(`/api/images/${cat.id}`)
-          .then((res) => res.json())
+        await fetch(`/api/images/${cat.id}`)
+          .then(async (res) => await res.json())
           .then((data) => setData(data));
     }, [cat.id]);
 
@@ -23,7 +23,7 @@ export default function InfoPage() {
             <div className="image-details">
                 <div className="image-column">
                     { data ? Object.entries(data).map(([index, item]) => 
-                        <img className="image-details" src={item.url} />
+                        <img key={index} className="image-details" src={item.url} />
                     ) : <img className="image-details" src={invalid_image} />}
                 </div>
                 <div className="container">

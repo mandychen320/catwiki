@@ -9,17 +9,17 @@ export default function Search() {
     const [result, setResult] = useState([]);
     const [random, setRandom] = useState([]);
 
-    useEffect(() => {
-        fetch(`/api/breeds`)
-          .then((res) => res.json())
+    useEffect( async () => {
+        await fetch(`/api/breeds`)
+          .then(async (res) => await res.json())
           .then((data) => setData(data));
-        fetch(`/api/images`)
-          .then((res) => res.json())
+        await fetch(`/api/images`)
+          .then(async (res) => await res.json())
           .then((data) => setRandom(data));
     }, []);
 
-    // console.log(data);
-    // console.log(random);
+    console.log(data);
+    console.log(random);
 
     const handleChange = (input, data) => {
         if (!data) return;
