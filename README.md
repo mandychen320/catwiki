@@ -19,8 +19,8 @@ Clicking on [More Info >>] will navigate to Info Page.
   Allows user to view breed information and a collection of pictures down the left hand side of the page.
 
 ### Tests
-Tests are located in `/client/__tests__`
-From the `client/__tests__` directory, run the following:
+Tests are located in `/client/src/__tests__`
+From the `client/src/__tests__` directory, run the following:
 ```
 
 npm test

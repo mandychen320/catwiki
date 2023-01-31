@@ -15,7 +15,7 @@ export default function InfoPage() {
           .then((data) => setData(data));
     }, [cat.id]);
 
-    console.log(data)
+    // console.log(data)
 
     return (<div className="background">
                     <button className="button"><Link to='/' style={{ textDecoration: 'none' }}>Back to Search</Link></button>

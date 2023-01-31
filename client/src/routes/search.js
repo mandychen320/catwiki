@@ -18,13 +18,13 @@ export default function Search() {
           .then((data) => setRandom(data));
     }, []);
 
-    console.log(data);
-    console.log(random);
+    // console.log(data);
+    // console.log(random);
 
     const handleChange = (input, data) => {
         if (!data) return;
         let cats = input === '' ? [] : data.filter((breed) => breed.name.toLowerCase().includes(input.toLowerCase()));
-        console.log(cats);
+        // console.log(cats);
         setResult(cats);
     }
 
