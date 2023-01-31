@@ -58,7 +58,7 @@ export default function Search() {
                 )}
                 <div className="random-images">
                     { random ? Object.entries(random).map(([index, item]) => 
-                        <img className="random-image" src={item.url} />
+                        <img key={index} className="random-image" src={item.url} />
                     ) : ''}
                 </div>
             </header>
